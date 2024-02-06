@@ -1,21 +1,31 @@
 import React, { useState, useEffect } from "react";
 import bgimg from "../Images/bg-img.jpg";
-import almond from "../Images/almonds.png";
-import akhrot from "../Images/kkkroot.png";
-import kajuu from "../Images/kajuu.png";
-import nut from "../Images/nut.png";
+import almond from "../Images/1.png";
+import akhrot from "../Images/2.png";
+import kajuu from "../Images/3.png";
+import nut from "../Images/4.png";
+import almondR from "../Images/1R.png";
+import akhrotR from "../Images/2R.png";
+import kajuuR from "../Images/3R.png";
+import nutR from "../Images/4R.png";
+
 
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [almond, akhrot, kajuu, nut];
+  const rSlides = [almondR, akhrotR, kajuuR, nutR];
 
   const nextSlide = () => {
     setCurrentSlide(currentSlide === slides.length - 1 ? 0 : currentSlide + 1);
+    setCurrentSlide(currentSlide === rSlides.length - 1 ? 0 : currentSlide + 1);
+
   };
 
   const prevSlide = () => {
     setCurrentSlide(currentSlide === 0 ? slides.length - 1 : currentSlide - 1);
+    setCurrentSlide(currentSlide === 0 ? rSlides.length - 1 : currentSlide - 1);
+
   };
 
   useEffect(() => {
@@ -28,8 +38,8 @@ const HeroSection = () => {
 
   return (
     <div>
-      <img src={bgimg} className="h-[325px] sm:h-[500px] lg:h-[700px] w-full " alt="Background" />
-      <div className="absolute   top-[100px] md:top-[120px] lg:top-48 w-full flex items-center">
+      <img src={bgimg} className="h-[260px] sm:h-[500px] lg:h-[700px] w-full " alt="Background" />
+      <div className="absolute   top-[100px] md:top-[120px] lg:top-42 w-full flex items-center">
       <button
             className="absolute top-1/2 left-4 lg:left-24 transform -translate-y-1/2 px-2 py-2 lg:px-3 lg:py-3 rounded-full bg-gray-800 text-white"
             onClick={prevSlide}
@@ -50,9 +60,9 @@ const HeroSection = () => {
             </svg>
           </button>
         <div >
-         
+{/*          
           <h1 className="text-[12px] lg:text-[35px] border font-semibold sm:text-2xl ml-14  w-[74%] lg:w-[60%] lg:m-auto sm:w-full  drop-shadow-xl">
-            {/* Display text based on current slide */}
+          
             {currentSlide === 0 &&
               "Nutritious & delicious nuts for healthy snacking"}
             {currentSlide === 1 &&
@@ -61,11 +71,15 @@ const HeroSection = () => {
               "Crunchy, tasty nuts, perfect for healthy and satisfying snacking"}
             {currentSlide === 3 &&
               "Delicious, colorful nuts, perfect for healthy and enjoyable snacking"}
-          </h1>
+          </h1> */}
           
         </div>
-       <div className=" border  ">
-       <img src={slides[currentSlide]} alt={`Slide ${currentSlide + 1}`} className="" />
+       <div className="   ">
+       <img src={slides[currentSlide]} alt={`Slide ${currentSlide + 1}`} className=" hidden md:block" />
+       
+       </div>
+       <div className="  md:hidden block  ">
+       <img src={rSlides[currentSlide]} alt={`Slide ${currentSlide + 1}`} className=" " />
        
        </div>
        <button

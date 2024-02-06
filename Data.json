@@ -1,0 +1,11 @@
+{
+    "products":[
+        {
+            "id":1,
+            "title":"Almonds",
+            "O-Price":"900",
+            "image":"",
+            "d-price":"800"
+        }
+    ]
+}
